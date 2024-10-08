@@ -64,7 +64,7 @@ const TeacherForm = ({
         {type === "create" ? "Create a new teacher" : "Update the teacher"}
       </h1>
       <span className="text-xs text-gray-400 font-medium">
-        Authentication Information
+        Información de Autenticación
       </span>
       <div className="flex justify-between flex-wrap gap-4">
         <InputField
@@ -91,7 +91,7 @@ const TeacherForm = ({
         />
       </div>
       <span className="text-xs text-gray-400 font-medium">
-        Personal Information
+        Información Personal
       </span>
       <div className="flex justify-between flex-wrap gap-4">
         <InputField
@@ -148,14 +148,14 @@ const TeacherForm = ({
           />
         )}
         <div className="flex flex-col gap-2 w-full md:w-1/4">
-          <label className="text-xs text-gray-500">Sex</label>
+          <label className="text-xs text-gray-500">Género</label>
           <select
             className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
             {...register("sex")}
             defaultValue={data?.sex}
           >
-            <option value="MALE">Male</option>
-            <option value="FEMALE">Female</option>
+            <option value="MALE">Masculino</option>
+            <option value="FEMALE">Femenino</option>
           </select>
           {errors.sex?.message && (
             <p className="text-xs text-red-400">
@@ -164,7 +164,7 @@ const TeacherForm = ({
           )}
         </div>
         <div className="flex flex-col gap-2 w-full md:w-1/4">
-          <label className="text-xs text-gray-500">Subjects</label>
+          <label className="text-xs text-gray-500">Materias</label>
           <select
             multiple
             className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
@@ -197,14 +197,14 @@ const TeacherForm = ({
                 onClick={() => open()}
               >
                 <Image src="/upload.png" alt="" width={28} height={28} />
-                <span>Upload a photo</span>
+                <span>Cargar foto</span>
               </div>
             );
           }}
         </CldUploadWidget>
       </div>
       {state.error && (
-        <span className="text-red-500">Something went wrong!</span>
+        <span className="text-red-500">¡Algo salió mal!</span>
       )}
       <button className="bg-blue-400 text-white p-2 rounded-md">
         {type === "create" ? "Create" : "Update"}

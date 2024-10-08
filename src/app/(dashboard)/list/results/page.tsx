@@ -35,37 +35,37 @@ const currentUserId = userId;
 
 const columns = [
   {
-    header: "Title",
+    header: "Título",
     accessor: "title",
   },
   {
-    header: "Student",
+    header: "Estudiante",
     accessor: "student",
   },
   {
-    header: "Score",
+    header: "Nota",
     accessor: "score",
     className: "hidden md:table-cell",
   },
   {
-    header: "Teacher",
+    header: "Docente",
     accessor: "teacher",
     className: "hidden md:table-cell",
   },
   {
-    header: "Class",
+    header: "Clase",
     accessor: "class",
     className: "hidden md:table-cell",
   },
   {
-    header: "Date",
+    header: "Fecha",
     accessor: "date",
     className: "hidden md:table-cell",
   },
   ...(role === "admin" || role === "teacher"
     ? [
         {
-          header: "Actions",
+          header: "Acciones",
           accessor: "action",
         },
       ]
@@ -85,7 +85,7 @@ const renderRow = (item: ResultList) => (
     </td>
     <td className="hidden md:table-cell">{item.className}</td>
     <td className="hidden md:table-cell">
-      {new Intl.DateTimeFormat("en-US").format(item.startTime)}
+      {new Intl.DateTimeFormat("en-UK").format(item.startTime)}
     </td>
     <td>
       <div className="flex items-center gap-2">
@@ -209,7 +209,7 @@ const renderRow = (item: ResultList) => (
     <div className="bg-white p-4 rounded-md flex-1 m-4 mt-0">
       {/* TOP */}
       <div className="flex items-center justify-between">
-        <h1 className="hidden md:block text-lg font-semibold">All Results</h1>
+        <h1 className="hidden md:block text-lg font-semibold">Todos los Resultados</h1>
         <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
           <TableSearch />
           <div className="flex items-center gap-4 self-end">

@@ -25,15 +25,15 @@ const AttendanceChartContainer = async () => {
 
   // console.log(data)
 
-  const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  const daysOfWeek = ["Lun", "Mar", "Mié", "Jue", "Vie"];
 
-  const attendanceMap: { [key: string]: { present: number; absent: number } } =
+  const attendanceMap: { [key: string]: { presente: number; ausente: number } } =
     {
-      Mon: { present: 0, absent: 0 },
-      Tue: { present: 0, absent: 0 },
-      Wed: { present: 0, absent: 0 },
-      Thu: { present: 0, absent: 0 },
-      Fri: { present: 0, absent: 0 },
+      Lun: { presente: 0, ausente: 0 },
+      Mar: { presente: 0, ausente: 0 },
+      Mié: { presente: 0, ausente: 0 },
+      Jue: { presente: 0, ausente: 0 },
+      Vie: { presente: 0, ausente: 0 },
     };
 
   resData.forEach((item) => {
@@ -44,23 +44,23 @@ const AttendanceChartContainer = async () => {
       const dayName = daysOfWeek[dayOfWeek - 1];
 
       if (item.present) {
-        attendanceMap[dayName].present += 1;
+        attendanceMap[dayName].presente += 1;
       } else {
-        attendanceMap[dayName].absent += 1;
+        attendanceMap[dayName].ausente += 1;
       }
     }
   });
 
   const data = daysOfWeek.map((day) => ({
     name: day,
-    present: attendanceMap[day].present,
-    absent: attendanceMap[day].absent,
+    presente: attendanceMap[day].presente,
+    ausente: attendanceMap[day].ausente,
   }));
 
   return (
     <div className="bg-white rounded-lg p-4 h-full">
       <div className="flex justify-between items-center">
-        <h1 className="text-lg font-semibold">Attendance</h1>
+        <h1 className="text-lg font-semibold">Asistencia</h1>
         <Image src="/moreDark.png" alt="" width={20} height={20} />
       </div>
       <AttendanceChart data={data}/>

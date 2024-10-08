@@ -75,7 +75,7 @@ const StudentForm = ({
         {type === "create" ? "Create a new student" : "Update the student"}
       </h1>
       <span className="text-xs text-gray-400 font-medium">
-        Authentication Information
+        Información de Autenticación
       </span>
       <div className="flex justify-between flex-wrap gap-4">
         <InputField
@@ -102,7 +102,7 @@ const StudentForm = ({
         />
       </div>
       <span className="text-xs text-gray-400 font-medium">
-        Personal Information
+        Información Personal
       </span>
       <CldUploadWidget
         uploadPreset="school"
@@ -118,7 +118,7 @@ const StudentForm = ({
               onClick={() => open()}
             >
               <Image src="/upload.png" alt="" width={28} height={28} />
-              <span>Upload a photo</span>
+              <span>Cargar foto</span>
             </div>
           );
         }}
@@ -185,14 +185,14 @@ const StudentForm = ({
           />
         )}
         <div className="flex flex-col gap-2 w-full md:w-1/4">
-          <label className="text-xs text-gray-500">Sex</label>
+          <label className="text-xs text-gray-500">Género</label>
           <select
             className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
             {...register("sex")}
             defaultValue={data?.sex}
           >
-            <option value="MALE">Male</option>
-            <option value="FEMALE">Female</option>
+            <option value="MALE">Masculino</option>
+            <option value="FEMALE">Femenino</option>
           </select>
           {errors.sex?.message && (
             <p className="text-xs text-red-400">
@@ -201,7 +201,7 @@ const StudentForm = ({
           )}
         </div>
         <div className="flex flex-col gap-2 w-full md:w-1/4">
-          <label className="text-xs text-gray-500">Grade</label>
+          <label className="text-xs text-gray-500">Grado</label>
           <select
             className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
             {...register("gradeId")}
@@ -249,7 +249,7 @@ const StudentForm = ({
         </div>
       </div>
       {state.error && (
-        <span className="text-red-500">Something went wrong!</span>
+        <span className="text-red-500">¡Algo salió mal!</span>
       )}
       <button type="submit" className="bg-blue-400 text-white p-2 rounded-md">
         {type === "create" ? "Create" : "Update"}

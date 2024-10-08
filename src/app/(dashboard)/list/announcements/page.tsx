@@ -22,22 +22,22 @@ const AnnouncementListPage = async ({
   
   const columns = [
     {
-      header: "Title",
+      header: "Título",
       accessor: "title",
     },
     {
-      header: "Class",
+      header: "Clase",
       accessor: "class",
     },
     {
-      header: "Date",
+      header: "Fecha",
       accessor: "date",
       className: "hidden md:table-cell",
     },
     ...(role === "admin"
       ? [
           {
-            header: "Actions",
+            header: "Acciones",
             accessor: "action",
           },
         ]
@@ -52,7 +52,7 @@ const AnnouncementListPage = async ({
       <td className="flex items-center gap-4 p-4">{item.title}</td>
       <td>{item.class?.name || "-"}</td>
       <td className="hidden md:table-cell">
-        {new Intl.DateTimeFormat("en-US").format(item.date)}
+        {new Intl.DateTimeFormat("en-UK").format(item.date)}
       </td>
       <td>
         <div className="flex items-center gap-2">
@@ -120,7 +120,7 @@ const AnnouncementListPage = async ({
       {/* TOP */}
       <div className="flex items-center justify-between">
         <h1 className="hidden md:block text-lg font-semibold">
-          All Announcements
+          Todos los Anuncios
         </h1>
         <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
           <TableSearch />
