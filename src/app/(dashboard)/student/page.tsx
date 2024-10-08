@@ -15,6 +15,11 @@ const StudentPage = async () => {
   });
 
   console.log(classItem);
+
+  if (classItem.length === 0) {
+    return <div>No hay clases disponibles.</div>;
+  }
+
   return (
     <div className="p-4 flex gap-4 flex-col xl:flex-row">
       {/* LEFT */}
