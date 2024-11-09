@@ -5,7 +5,7 @@ const roleTranslations: Record<string, string> = {
   admin: "admin",
   teacher: "docente",
   student: "estudiante",
-  parent: "familias",
+  parent: "familia",
 };
 
 const UserCard = async ({

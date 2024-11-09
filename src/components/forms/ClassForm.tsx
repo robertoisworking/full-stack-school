@@ -58,7 +58,7 @@ const ClassForm = ({
 
   useEffect(() => {
     if (state.success) {
-      toast(`Subject has been ${type === "create" ? "created" : "updated"}!`);
+      toast(`La clase ha sido ${type === "create" ? "creada" : "actualizada"}!`);
       setOpen(false);
       router.refresh();
     }
@@ -69,19 +69,19 @@ const ClassForm = ({
   return (
     <form className="flex flex-col gap-8" onSubmit={onSubmit}>
       <h1 className="text-xl font-semibold">
-        {type === "create" ? "Create a new class" : "Update the class"}
+        {type === "create" ? "Crear nueva clase" : "Actualizar clase"}
       </h1>
 
       <div className="flex justify-between flex-wrap gap-4">
         <InputField
-          label="Class name"
+          label="Clase"
           name="name"
           defaultValue={data?.name}
           register={register}
           error={errors?.name}
         />
         <InputField
-          label="Capacity"
+          label="Capacidad"
           name="capacity"
           defaultValue={data?.capacity}
           register={register}
@@ -150,7 +150,7 @@ const ClassForm = ({
         <span className="text-red-500">¡Algo salió mal!</span>
       )}
       <button className="bg-blue-400 text-white p-2 rounded-md">
-        {type === "create" ? "Create" : "Update"}
+        {type === "create" ? "Crear" : "Actualizar"}
       </button>
     </form>
   );
