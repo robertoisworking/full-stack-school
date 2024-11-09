@@ -1,4 +1,5 @@
 import { currentUser } from "@clerk/nextjs/server";
+import { SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -109,9 +110,16 @@ const menuItems = [
       // },
       {
         icon: "/logout.png",
-        label: "Salir",
-        href: "/logout",
+        label: "",
         visible: ["admin", "teacher", "student", "parent"],
+        component: (
+          <SignOutButton>
+            <div className="flex items-center gap-2 cursor-pointer ml-[-1rem]">
+              <Image src="/logout.png" alt="" width={20} height={20} className="cursor-pointer" />
+              <span className="text-gray-500 ml-[0.5rem]">Salir</span>
+            </div>
+          </SignOutButton>
+        ),
       },
     ],
   },
@@ -129,7 +137,13 @@ const Menu = async () => {
           </span>
           {i.items.map((item) => {
             if (item.visible.includes(role)) {
-              return (
+              return item.component ? (
+                <div key={item.label} className="flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-walledSkyLight">
+                  {/* <Image src={item.icon} alt="" width={20} height={20} /> */}
+                  <span className="hidden lg:block">{item.label}</span>
+                  {item.component}
+                </div>
+              ) : (
                 <Link
                   href={item.href}
                   key={item.label}
