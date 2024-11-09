@@ -61,7 +61,7 @@ const StudentForm = ({
 
   useEffect(() => {
     if (state.success) {
-      toast(`Student has been ${type === "create" ? "created" : "updated"}!`);
+      toast(`El estudiante ha sido ${type === "create" ? "creado" : "actualizado"}!`);
       setOpen(false);
       router.refresh();
     }

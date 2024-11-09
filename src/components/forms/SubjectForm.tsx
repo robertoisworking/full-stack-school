@@ -48,7 +48,7 @@ const SubjectForm = ({
 
   useEffect(() => {
     if (state.success) {
-      toast(`Subject has been ${type === "create" ? "created" : "updated"}!`);
+      toast(`La materia ha sido ${type === "create" ? "creada" : "actualizada"}!`);
       setOpen(false);
       router.refresh();
     }
@@ -59,12 +59,12 @@ const SubjectForm = ({
   return (
     <form className="flex flex-col gap-8" onSubmit={onSubmit}>
       <h1 className="text-xl font-semibold">
-        {type === "create" ? "Create a new subject" : "Update the subject"}
+        {type === "create" ? "Crear nueva materia" : "Actualizar materia"}
       </h1>
 
       <div className="flex justify-between flex-wrap gap-4">
         <InputField
-          label="Subject name"
+          label="Materia"
           name="name"
           defaultValue={data?.name}
           register={register}
@@ -107,7 +107,7 @@ const SubjectForm = ({
         <span className="text-red-500">¡Algo salió mal!</span>
       )}
       <button className="bg-blue-400 text-white p-2 rounded-md">
-        {type === "create" ? "Create" : "Update"}
+        {type === "create" ? "Crear" : "Actualizar"}
       </button>
     </form>
   );

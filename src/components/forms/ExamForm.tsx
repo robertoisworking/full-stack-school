@@ -58,7 +58,7 @@ const ExamForm = ({
 
   useEffect(() => {
     if (state.success) {
-      toast(`Exam has been ${type === "create" ? "created" : "updated"}!`);
+      toast(`El examen ha sido ${type === "create" ? "creado" : "actualizado"}!`);
       setOpen(false);
       router.refresh();
     }
@@ -69,19 +69,19 @@ const ExamForm = ({
   return (
     <form className="flex flex-col gap-8" onSubmit={onSubmit}>
       <h1 className="text-xl font-semibold">
-        {type === "create" ? "Create a new exam" : "Update the exam"}
+        {type === "create" ? "Crear nuevo examen" : "Actualizar examen"}
       </h1>
 
       <div className="flex justify-between flex-wrap gap-4">
         <InputField
-          label="Exam title"
+          label="Título de examen"
           name="title"
           defaultValue={data?.title}
           register={register}
           error={errors?.title}
         />
         <InputField
-          label="Start Date"
+          label="Fecha inicial"
           name="startTime"
           defaultValue={data?.startTime}
           register={register}
@@ -89,7 +89,7 @@ const ExamForm = ({
           type="datetime-local"
         />
         <InputField
-          label="End Date"
+          label="Fecha final"
           name="endTime"
           defaultValue={data?.endTime}
           register={register}
@@ -130,7 +130,7 @@ const ExamForm = ({
         <span className="text-red-500">¡Algo salió mal!</span>
       )}
       <button className="bg-blue-400 text-white p-2 rounded-md">
-        {type === "create" ? "Create" : "Update"}
+        {type === "create" ? "Crear" : "Actualizar"}
       </button>
     </form>
   );
